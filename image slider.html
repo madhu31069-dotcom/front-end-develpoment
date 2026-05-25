@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Slider</title>
+
+    <style>
+
+        body{
+            font-family: Arial;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+
+        .slider{
+            width: 500px;
+            height: 300px;
+            overflow: hidden;
+            margin: 50px auto;
+            border: 3px solid black;
+        }
+
+        .slides{
+            display: flex;
+            width: 1500px;
+            animation: slide 9s infinite;
+        }
+
+        .slides img{
+            width: 500px;
+            height: 300px;
+        }
+
+        @keyframes slide{
+
+            0%{
+                margin-left: 0;
+            }
+
+            33%{
+                margin-left: -500px;
+            }
+
+            66%{
+                margin-left: -1000px;
+            }
+
+            100%{
+                margin-left: 0;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>Image Slider</h1>
+
+    <div class="slider">
+
+        <div class="slides">
+
+            <img src="pic1.jpg">
+            
+            <img src="pic2.jpg">
+            
+            <img src="pic3.jpg">
+
+        </div>
+
+    </div>
+
+</body>
+</html>
