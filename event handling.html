@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Events Example</title>
+
+<style>
+body{
+    font-family:Arial;
+    text-align:center;
+    margin-top:50px;
+}
+
+button{
+    padding:10px;
+    background-color:blue;
+    color:white;
+    border:none;
+}
+
+button:hover{
+    background-color:green;
+}
+
+input{
+    padding:8px;
+}
+</style>
+
+<script>
+
+function clickEvent(){
+    alert("Button Clicked");
+}
+
+function mouseOverEvent(){
+    document.getElementById("demo").innerHTML="Mouse Over Event";
+}
+
+function mouseOutEvent(){
+    document.getElementById("demo").innerHTML="Mouse Out Event";
+}
+
+function keyUpEvent(){
+    document.getElementById("demo").innerHTML="Key Pressed";
+}
+
+function submitEvent(){
+    alert("Form Submitted");
+}
+
+</script>
+
+</head>
+
+<body>
+
+<h2>HTML Events Example</h2>
+
+
+<button onclick="clickEvent()">
+Click Me
+</button>
+
+<br><br>
+
+
+<button onmouseover="mouseOverEvent()" 
+        onmouseout="mouseOutEvent()">
+Hover Mouse
+</button>
+
+<br><br>
+<input type="text" 
+       onkeyup="keyUpEvent()" 
+       placeholder="Type something">
+
+<br><br>
+
+
+<form onsubmit="submitEvent()">
+<input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
