@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Zomato Demo UI</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background:#f8f8f8;
+      color:#333;
+    }
+
+    /* NAVBAR */
+    .navbar{
+      background:#e23744;
+      color:white;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:15px 40px;
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:bold;
+    }
+
+    .nav-links a{
+      color:white;
+      text-decoration:none;
+      margin-left:20px;
+      font-size:16px;
+    }
+
+    /* HERO SECTION */
+    .hero{
+      background:url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1400&auto=format&fit=crop')
+      center/cover no-repeat;
+      height:350px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      color:white;
+      text-align:center;
+    }
+
+    .hero h1{
+      font-size:48px;
+      margin-bottom:15px;
+    }
+
+    .hero p{
+      font-size:20px;
+      margin-bottom:20px;
+    }
+
+    .search-box{
+      display:flex;
+      width:70%;
+      max-width:700px;
+      background:white;
+      border-radius:10px;
+      overflow:hidden;
+    }
+
+    .search-box input{
+      flex:1;
+      padding:15px;
+      border:none;
+      outline:none;
+      font-size:16px;
+    }
+
+    .search-box button{
+      background:#e23744;
+      color:white;
+      border:none;
+      padding:15px 25px;
+      cursor:pointer;
+      font-size:16px;
+    }
+
+    /* RESTAURANT SECTION */
+    .section-title{
+      text-align:center;
+      margin:40px 0 20px;
+      font-size:32px;
+    }
+
+    .restaurant-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:20px;
+      padding:20px 40px 50px;
+    }
+
+    .card{
+      background:white;
+      border-radius:15px;
+      overflow:hidden;
+      box-shadow:0 4px 10px rgba(0,0,0,0.1);
+      transition:0.3s;
+    }
+
+    .card:hover{
+      transform:translateY(-5px);
+    }
+
+    .card img{
+      width:100%;
+      height:180px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:15px;
+    }
+
+    .card-content h3{
+      margin-bottom:10px;
+    }
+
+    .rating{
+      background:green;
+      color:white;
+      display:inline-block;
+      padding:5px 10px;
+      border-radius:5px;
+      font-size:14px;
+      margin-top:10px;
+    }
+
+    /* FOOTER */
+    footer{
+      background:#222;
+      color:white;
+      text-align:center;
+      padding:20px;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+
+      .hero h1{
+        font-size:35px;
+      }
+
+      .search-box{
+        width:90%;
+      }
+
+      .navbar{
+        flex-direction:column;
+      }
+
+      .nav-links{
+        margin-top:10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">zomato</div>
+
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">Restaurants</a>
+      <a href="#">Offers</a>
+      <a href="#">Login</a>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Discover the best food & drinks</h1>
+    <p>Order food from your favorite restaurants</p>
+
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Search restaurants...">
+      <button onclick="searchRestaurant()">Search</button>
+    </div>
+  </section>
+
+  <!-- RESTAURANT LIST -->
+  <h2 class="section-title">Popular Restaurants</h2>
+
+  <section class="restaurant-container" id="restaurantList">
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?q=80&w=1200&auto=format&fit=crop" alt="">
+      <div class="card-content">
+        <h3>Pizza Palace</h3>
+        <p>Italian, Fast Food</p>
+        <span class="rating">4.5 ★</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?q=80&w=1200&auto=format&fit=crop" alt="">
+      <div class="card-content">
+        <h3>Burger Hub</h3>
+        <p>Burgers, Snacks</p>
+        <span class="rating">4.2 ★</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop" alt="">
+      <div class="card-content">
+        <h3>Spicy Treat</h3>
+        <p>Indian, Biryani</p>
+        <span class="rating">4.7 ★</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?q=80&w=1200&auto=format&fit=crop" alt="">
+      <div class="card-content">
+        <h3>Sweet Dessert</h3>
+        <p>Cakes, Ice Cream</p>
+        <span class="rating">4.4 ★</span>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Zomato Demo UI | Frontend Design</p>
+  </footer>
+
+  <script>
+    function searchRestaurant() {
+      let input = document.getElementById("searchInput").value.toLowerCase();
+
+      let cards = document.querySelectorAll(".card");
+
+      cards.forEach(card => {
+        let title = card.querySelector("h3").innerText.toLowerCase();
+
+        if(title.includes(input)){
+          card.style.display = "block";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
