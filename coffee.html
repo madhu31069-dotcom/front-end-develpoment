@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coffee Haven</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f8f5f2;
+}
+
+header{
+    background:#5c3d2e;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+.hero{
+    text-align:center;
+    padding:40px 20px;
+}
+
+.hero h2{
+    color:#5c3d2e;
+    margin-bottom:10px;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+.menu{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    margin:30px 0;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.card img{
+    width:100%;
+    height:160px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.card h3{
+    margin:10px 0;
+}
+
+.price{
+    color:#5c3d2e;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+button{
+    background:#5c3d2e;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#7a523d;
+}
+
+.cart{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    margin:30px 0;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.cart h2{
+    margin-bottom:15px;
+}
+
+.cart-item{
+    display:flex;
+    justify-content:space-between;
+    margin:8px 0;
+}
+
+.total{
+    margin-top:15px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+footer{
+    text-align:center;
+    background:#5c3d2e;
+    color:white;
+    padding:15px;
+    margin-top:30px;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>☕ Coffee Haven</h1>
+    <p>Fresh Coffee & Delicious Snacks</p>
+</header>
+
+<section class="hero">
+    <h2>Welcome to Coffee Haven</h2>
+    <p>Enjoy the best coffee and snacks in town.</p>
+</section>
+
+<div class="container">
+
+    <h2>Our Menu</h2>
+
+    <div class="menu">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600" alt="">
+            <h3>Espresso</h3>
+            <p class="price">₹120</p>
+            <button onclick="addToCart('Espresso',120)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600" alt="">
+            <h3>Cappuccino</h3>
+            <p class="price">₹180</p>
+            <button onclick="addToCart('Cappuccino',180)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=600" alt="">
+            <h3>Latte</h3>
+            <p class="price">₹200</p>
+            <button onclick="addToCart('Latte',200)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1551024601-bec78aea704b?w=600" alt="">
+            <h3>Mocha</h3>
+            <p class="price">₹220</p>
+            <button onclick="addToCart('Mocha',220)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=600" alt="">
+            <h3>Brownie</h3>
+            <p class="price">₹150</p>
+            <button onclick="addToCart('Brownie',150)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=600" alt="">
+            <h3>Cheesecake</h3>
+            <p class="price">₹250</p>
+            <button onclick="addToCart('Cheesecake',250)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600" alt="">
+            <h3>Sandwich</h3>
+            <p class="price">₹180</p>
+            <button onclick="addToCart('Sandwich',180)">Add to Cart</button>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1576107232684-1279f390859f?w=600" alt="">
+            <h3>French Fries</h3>
+            <p class="price">₹130</p>
+            <button onclick="addToCart('French Fries',130)">Add to Cart</button>
+        </div>
+
+    </div>
+
+    <div class="cart">
+        <h2>🛒 Cart</h2>
+        <div id="cartItems"></div>
+        <div class="total">
+            Total: ₹<span id="total">0</span>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>© 2025 Coffee Haven. All Rights Reserved.</p>
+</footer>
+
+<script>
+let cart = [];
+let total = 0;
+
+function addToCart(name, price){
+
+    cart.push({name, price});
+    total += price;
+
+    displayCart();
+}
+
+function displayCart(){
+
+    const cartItems = document.getElementById("cartItems");
+
+    cartItems.innerHTML = "";
+
+    cart.forEach((item,index)=>{
+
+        cartItems.innerHTML += `
+        <div class="cart-item">
+            <span>${item.name} - ₹${item.price}</span>
+            <button onclick="removeItem(${index})">Remove</button>
+        </div>
+        `;
+    });
+
+    document.getElementById("total").innerText = total;
+}
+
+function removeItem(index){
+
+    total -= cart[index].price;
+    cart.splice(index,1);
+
+    displayCart();
+}
+</script>
+
+</body>
+</html>
