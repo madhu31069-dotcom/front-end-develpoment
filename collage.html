@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABC College</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+}
+
+header{
+    background:#003366;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+nav{
+    background:#00509e;
+    padding:10px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+}
+
+.hero{
+    text-align:center;
+    padding:50px;
+    background:white;
+}
+
+.hero h1{
+    color:#003366;
+}
+
+.btn{
+    background:#007bff;
+    color:white;
+    border:none;
+    padding:12px 20px;
+    cursor:pointer;
+    border-radius:5px;
+    margin-top:15px;
+}
+
+.section{
+    padding:40px;
+}
+
+.courses{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.course-card{
+    background:white;
+    width:250px;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+footer{
+    background:#003366;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+#count{
+    color:green;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<header>
+    <h1>ABC College</h1>
+    <p>Excellence in Education</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#courses">Courses</a>
+    <a href="#admission">Admission</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero" id="home">
+    <h1>Welcome to ABC College</h1>
+    <p>Empowering Students for a Better Future</p>
+
+    <button class="btn" onclick="applyNow()">
+        Apply Now
+    </button>
+
+    <p style="margin-top:15px;">
+        Applications Received:
+        <span id="count">0</span>
+    </p>
+</section>
+
+<section class="section" id="courses">
+    <h2 style="text-align:center;">Our Courses</h2>
+    <br>
+
+    <div class="courses">
+        <div class="course-card">
+            <h3>B.Sc Computer Science</h3>
+            <p>3 Year Undergraduate Program</p>
+        </div>
+
+        <div class="course-card">
+            <h3>BCA</h3>
+            <p>Bachelor of Computer Applications</p>
+        </div>
+
+        <div class="course-card">
+            <h3>B.Com</h3>
+            <p>Commerce and Business Studies</p>
+        </div>
+
+        <div class="course-card">
+            <h3>MBA</h3>
+            <p>Master of Business Administration</p>
+        </div>
+    </div>
+</section>
+
+<section class="section" id="admission">
+    <h2>Admissions Open 2026</h2>
+    <br>
+    <p>
+        Students can apply online for undergraduate
+        and postgraduate programs.
+    </p>
+</section>
+
+<section class="section" id="contact">
+    <h2>Contact Us</h2>
+    <br>
+    <p>Email: info@abccollege.edu</p>
+    <p>Phone: +91 9876543210</p>
+    <p>Address: Chennai, Tamil Nadu, India</p>
+</section>
+
+<footer>
+    <p>© 2026 ABC College. All Rights Reserved.</p>
+</footer>
+
+<script>
+let applications = 0;
+
+function applyNow() {
+    applications++;
+
+    document.getElementById("count").innerText =
+        applications;
+
+    alert("Application Submitted Successfully!");
+}
+</script>
+
+</body>
+</html>
